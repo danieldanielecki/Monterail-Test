@@ -11,6 +11,7 @@ var UserSchema = new Schema({
     type: String,
     lowercase: true
   },
+  gravatar: String,
   role: {
     type: String,
     default: 'user'
