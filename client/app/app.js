@@ -8,8 +8,6 @@
       'ngResource',
       'ui.router',
       'ngAnimate',
-      'ngFileUpload',
-      'angularGrid',
       'angularMoment',
       'mgcrea.ngStrap'
     ])
@@ -19,7 +17,7 @@
 
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
   run.$inject = ['$rootScope', '$location', 'Auth'];
-  authInterceptor.$inject = ['$rootScope', '$q', '$cookieStore', '$location']
+  authInterceptor.$inject = ['$rootScope', '$q', '$cookieStore', '$location'];
 
   // Creates clean URLs.
   function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
