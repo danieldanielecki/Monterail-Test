@@ -19,4 +19,3 @@ router.post('/', controller.create);
 router.delete('/:id', auth.hasRole('admin'), controller.destroy);
 
 module.exports = router;
-

@@ -1,1 +1,37 @@
-<h1>Hello World</h1>
+<div class="container">
+  <!-- Search and upload button. -->
+  <div id="searchFilterWrap">
+    <form id="searchForm">
+      <input type="text" id="searchBox" placeholder="Search by title" ng-model="searchTxt" ng-model-options="{debounce : 600}" />
+    </form>
+    <div class="modal-backdrop-am-fade" id="sortByWrap">
+      <button class="btn btn-primary" data-animation="am-fade-and-scale" data-placement="center" data-template-url="app/main/addLookModal.html" bs-modal="showModal" ng-click="showUploadForm()">Add question</button>
+    </div>
+  </div>
+
+  <!-- Angular Grid. -->
+  <div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy || noMoreData" infinite-scroll-distance="0.1">
+    <ul class="dynamic-grid angular-grid" angular-grid="looks" grid-width="275" gutter-size="10" angular-grid-id="gallery" refresh-on-img-load="true">
+      <li data-ng-repeat="look in looks track by $index" class="grid" ng-cloak>
+        <a ui-sref="look ({ lookId: look._id })" class="lookLink">
+          <img ng-src="{{ look.image }}" class="grid-img" data-actual-width="{{ look.actualWidth }}" data-actual-height="{{ look.actualHeight }}" />
+          <div class="look-description-trim">
+            {{ look.description.substr(0,100) }}
+          </div>
+          <div class="titleClass">
+            {{ look.title }}
+          </div>
+        </a>
+        <div class="social">
+          <a href="#" class="like-look" ng-click="addVote(look)">
+            <i class="fa fa-thumbs-o-up fa-2x icon-like"></i></a>
+          <span class="likeCount">{{ look.upVotes }}</span>
+          <a href="#" class="like-look" ng-click="downVote(look)">
+          <i class="fa fa-thumbs-o-down fa-2x icon-like"></i></a>
+          <span class="dislikeCount">{{ look.downVotes }}</span>
+        </div>
+      </li>
+    </ul>
+    <div ng-show='busy'>Loading data...</div>
+  </div>
+</div>

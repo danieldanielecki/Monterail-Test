@@ -5,9 +5,9 @@
     .module('app')
     .factory('Auth', Auth);
 
-  Auth.$inject = ['$location', '$rootScope', '$http', 'User', '$cookieStore', '$q'];
+  Auth.$inject = ['$http', 'User', '$cookieStore', '$q'];
 
-  function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+  function Auth($http, User, $cookieStore, $q) {
     var currentUser = {};
 
     if ($cookieStore.get('token')) {
@@ -124,21 +124,6 @@
       isAdmin: function() {
         return currentUser.role === 'admin';
       },
-
-      /**
-       * Get auth token
-       */
-      getToken: function() {
-        return $cookieStore.get('token');
-      },
-
-
-      /**
-       * Get logged in user email
-       */
-      getUserEmail: function() {
-        return currentUser.email;
-      }
     };
   }
 

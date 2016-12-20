@@ -1,0 +1,42 @@
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" ng-show="title">
+        <button type="button" class="close" ng-click="$hide()"><i class="fa fa-times"></i></button>
+        <h4 class="modal-title">Add Your Look</h4>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <div class="uploadLookTitle">
+            <button class="btn btn-primary btn-lg btn-block" ng-show="uploadLookTitle" ng-click="showUploadForm()">Upload a Look</button>
+          </div>
+        </div>
+          <form name="myForm" ng-show="uploadLookForm">
+            <div class="row row-centered">
+              <div class="col-centered">
+                <div class="well well-lg">
+                  <div class="form-group">
+                    <label class="control-label"><h3>Look Details</h3></label>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Title" ng-model="look.title" required /><i ng-show="myForm.title.$error.required">*required</i>
+                    </div>
+                    <div class="form-group">
+                    <textarea class="form-control" placeholder="Description" rows="3" ng-model="look.description" required />
+                      <i ng-show="myForm.description.$error.required">*required</i>
+                      </textarea>
+                    </div>
+                    <div class="controls">
+                      <button id="loadButton" ng-disabled="!myForm.$valid" class="btn btn-primary btn-lg" ng-click="uploadPic()">Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+    </div>
+      <div class="modal-footer close-btn-main">
+        <button type="button" class="btn btn-default pull-left" ng-click="$hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

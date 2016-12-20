@@ -4,10 +4,10 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
-var gravatar = require("gravatar");
+var gravatar = require('gravatar');
 
 var validationError = function(res, err) {
-  return res.json(422, err);
+  return res.json(422, err); // 422 - unprocessable entity.
 };
 
 /**
@@ -25,14 +25,15 @@ exports.index = function(req, res) {
  * Creates a new user
  */
 exports.create = function (req, res, next) {
-  // Create a gravatar for User, images might be displayed from Gravatar system only. Authanticate User after requesting email from body.
+  // Create a gravatar for our User.
   var getGravatar = gravatar.url(req.body.email, {
-    s: 50,
-    d: "retro"
+    s: 40, // Size = 40.
+    d: 'retro' // Design = retro.
   });
 
   var newUser = new User(req.body);
-  newUser.gravatar = getGravatar; // Get Gravatar image.
+
+  newUser.gravatar = getGravatar; // Get gravatar image.
   newUser.provider = 'local';
   newUser.role = 'user';
   newUser.save(function(err, user) {
@@ -129,4 +130,3 @@ exports.me = function(req, res, next) {
 exports.authCallback = function(req, res, next) {
   res.redirect('/');
 };
-

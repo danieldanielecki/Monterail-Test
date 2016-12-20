@@ -5,9 +5,9 @@
     .module('app')
     .controller('LoginCtrl', LoginCtrl);
 
-  LoginCtrl.$inject = ['$scope', 'Auth', '$state', '$window'];
+  LoginCtrl.$inject = ['$scope', 'Auth', '$state'];
 
-  function LoginCtrl($scope, Auth, $state, $window) {
+  function LoginCtrl($scope, Auth, $state) {
 
     $scope.user = {};
     $scope.errors = {};
@@ -29,10 +29,5 @@
           });
       }
     };
-
-    $scope.loginOauth = function(provider) {
-      $window.location.href = '/auth/' + provider;
-    };
   }
-
 })();

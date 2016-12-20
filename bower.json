@@ -29,6 +29,8 @@
     "angular-ui-router": "~0.2.15",
     "angular-strap": "~2.3.3",
     "angular-animate": "~1.4.7",
+    "ng-file-upload": "~9.0.9",
+    "ngInfiniteScroll": "~1.2.1",
     "angular-moment": "~0.10.3",
     "moment": "~2.10.6",
     "angular-motion": "^0.4.4"
