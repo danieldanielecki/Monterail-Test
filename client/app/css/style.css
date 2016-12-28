@@ -1,0 +1,9 @@
+/* line 2, style.scss */
+h2 h1 {
+  font-size: 20px;
+}
+/* line 4, style.scss */
+h2 h1 h3 {
+  font-size: 10px;
+  font-weight: 100;
+}
